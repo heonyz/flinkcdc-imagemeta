@@ -1,0 +1,36 @@
+# Flink cluster configuration
+
+# JobManager RPC address (used for communication)
+jobmanager.rpc.address: jobmanager
+
+# REST service bind address for JobManager
+rest.address: jobmanager
+rest.port: 8081
+
+# Number of Task Slots per TaskManager
+taskmanager.numberOfTaskSlots: 2
+
+# Memory settings (adjust these based on your resource requirements)
+taskmanager.memory.process.size: 1024m
+jobmanager.memory.process.size: 1024m
+
+# Enable checkpointing (useful for fault tolerance)
+state.backend: filesystem
+state.checkpoints.dir: file:///tmp/iceberg/checkpoints
+
+# High Availability settings (optional)
+high-availability: zookeeper
+high-availability.storageDir: file:///tmp/iceberg/ha
+
+# Enable HDFS access
+fs.default-scheme: hdfs://namenode-host:8020
+
+# Enable Iceberg catalog configuration (example configuration)
+iceberg.catalog.my_catalog.type: hadoop
+iceberg.catalog.my_catalog.warehouse: file:///tmp/iceberg/warehouse
+
+# Optional: Adjust other configurations as necessary
+parallelism.default: 2
+restart-strategy: fixed-delay
+restart-strategy.fixed-delay.attempts: 3
+restart-strategy.fixed-delay.delay: 10s
