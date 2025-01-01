@@ -23,6 +23,7 @@ https://nightlies.apache.org/flink/flink-cdc-docs-master/docs/connectors/flink-s
 
 ### 프로젝트 목적
 CV 학습용 데이터 통합: 샤딩된 DB의 메타데이터(이미지 경로, 검사 시점, 결함 정보 등)를 단일 데이터 세트로 통합.
+
 실시간 데이터 처리: MySQL 데이터베이스 변경 사항을 실시간 반영.
 
 
